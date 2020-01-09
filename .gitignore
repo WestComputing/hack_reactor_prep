@@ -5,6 +5,8 @@
 !.vscode/extensions.json
 *.code-workspace
 
+index.js
+
 # Logs
 logs
 *.log
