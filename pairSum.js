@@ -19,6 +19,14 @@ function findPairForSum(array, value) {
 }
 
 
+function findPairForSum(array, targetSum) {
+  const numbers = array.filter(e => e > -1 && e <= targetSum)
+  for (let i = 0; i < numbers.length - 1; i++) {
+    let i2 = numbers.findIndex(e => e === targetSum - numbers[i], i + 1)
+    if (i2 !== -1) return [numbers[i], numbers[i2]]
+  }
+  return []
+}
 
 
 

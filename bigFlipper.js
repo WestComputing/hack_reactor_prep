@@ -33,6 +33,13 @@ function flipEveryNChars(input, n) {
   return inputArray.join('')
 }
 
+// smallest/clearest
+function flipEveryNChars(input, number) {
+  let result = ''
+  for (let i = 0; i < input.length; i += number)
+    result += input.substring(i, i + number).split('').reverse().join('')
+  return result
+}
 
 var input = 'a short example';
 var output = flipEveryNChars(input, 5);
