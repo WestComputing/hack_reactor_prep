@@ -22,22 +22,40 @@ var groupA = [
 ]
 
 // Ex 1 - return array of names >= 48 in tall
-function tallEnoughToRide(group) {
+// function tallEnoughToRide(group) {
 
-  let result = []
-  group.forEach(e => {
-    let height = 0
-    if (e.hasOwnProperty('heightInInches')) height = e.heightInInches
-    if (height >= 48) result.push(e.name)
-  })
-  return result
+//   let result = []
+//   group.forEach(e => {
+//     let height = 0
+//     if (e.hasOwnProperty('heightInInches')) height = e.heightInInches
+//     if (height >= 48) result.push(e.name)
+//   })
+//   return result
+// }
+
+// after-the-fact
+function tallEnoughToRide(group) {
+  return group.filter(e => e.heightInInches >= 48).map(e => e.name)
 }
+
+
 console.log(tallEnoughToRide(groupA)) //["Mia", "Kiana", "Alex"];
 
 
 // Ex 2 - return tallest person
+// function tallestPerson(group) {
+//   return group.reduce((r, e) => e.heightInInches > r ? e.heightInInches : r, 0)
+// }
+
+// after-the-fact
+// function tallestPerson(group) {
+//   const tallest = group.reduce((r, e) => e.heightInInches > r[1] ? [e.name, e.heightInInches] : r, ['', 0])
+//   return tallest[0] + " at " + tallest[1] + " inches"
+// }
+
 function tallestPerson(group) {
-  return group.reduce((r, e) => e.heightInInches > r ? e.heightInInches : r, 0)
+  const tallest = group.reduce((r, e) => e.heightInInches > r.heightInInches ? e : r)
+  return tallest.name + " at " + tallest.heightInInches + " inches"
 }
 
 console.log(tallestPerson(groupA)) //"Kiana at 55 inches"
@@ -139,7 +157,6 @@ function removeMostExpensive(listIn) {
   let highestIndex = list.findIndex(e => e.price === highestPrice)
   list.splice(highestIndex, 1)
   return list
-
 }
 
 console.log(removeMostExpensive(shoppingList))
