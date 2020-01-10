@@ -49,3 +49,5 @@ const network = detectNetwork('343456789012345', cardData);
 console.log(network); // --> 'American Express'
 
 console.log(detectNetwork(4444222244442222, cardData));
+
+console.log(detectNetwork('39', cardData)); // Invalid
