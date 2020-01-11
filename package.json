@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "say": "^0.16.0",
-    "speech-synthesis": "^0.3.2"
+    "say": "^0.16.0"
   }
 }
