@@ -1,10 +1,9 @@
 // Write a function numToRoman that takes in a number and returns a string of Roman numerals equal in value to the number.
 
 const numToRoman = num => {
-  if (num > 3999 || num < 1) return ''
+  if (num < 1 || num > 3999) return ''
 
-  const VALUE = 0 // i.e. 1000
-  const DIGIT = 1 // i.e. 'M'
+  const [VALUE, DIGIT] = [0, 1] // Tuple index in table
   const TABLE = [
     [1000, 'M'],
     [900, 'CM'],
@@ -21,13 +20,13 @@ const numToRoman = num => {
     [1, 'I']
   ]
 
-  const lookup = TABLE.findIndex(e => num - e[VALUE] >= 0) // find biggest roman digit that will fit in num
+  const lookup = TABLE.findIndex(e => num - e[VALUE] >= 0) // find biggest roman digit that will fit
   const roman = TABLE[lookup][DIGIT] // put roman digits to result string for recursion
   num -= TABLE[lookup][VALUE] // reduce num by value of roman digit(s)
   return roman + numToRoman(num)
 }
 
-const assertEqual = (actual, expected) => `${actual} ${actual === expected ? `✓ pass` : `FAIL: expected ${expected}`}`
+const assertEqual = (act, exp) => `${act} ${act === exp ? `✓ pass` : `FAIL: expected ${exp}`}`
 const testNumToRoman = ([arg, exp]) => console.log(`${arg} => ${assertEqual(numToRoman(arg), exp)}`)
 const testNumToRomanData = [
   [2020, 'MMXX'],
