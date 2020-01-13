@@ -22,9 +22,9 @@ const numToRoman = num => {
   let result = ''
 
   do { // findIndex returns the index of the first element that satisfies the provided testing function
-    let index = TABLE.findIndex(e => num - e[VALUE] >= 0) // finds biggest roman digit that will fit
-    result += TABLE[index][DIGIT] // concatenate roman digits to result string
-    num -= TABLE[index][VALUE]    // subtract value of roman digits from num
+    let lookup = TABLE.findIndex(e => num - e[VALUE] >= 0) // finds biggest roman digit that will fit
+    result += TABLE[lookup][DIGIT] // concatenate roman digits to result string
+    num -= TABLE[lookup][VALUE]    // subtract value of roman digits from num
   } while (num) // while num is non-zero (truthy)
   return result
 }
