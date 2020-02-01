@@ -1,5 +1,5 @@
 // For node versions prior to 11 (and aren't one louder)
-if (parseInt(process.version.slice(1, 3)) < 11)
+if (parseInt(process.version.slice(1)) < 11)
   Array.prototype.flat = function () {
     return this.reduce((a, e) => a.concat(e), [])
   }

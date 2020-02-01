@@ -114,14 +114,11 @@ function mergeSort(array) {
       if (i1 < len1) {
         if (i2 === len2 || array2[i2] > array1[i1]) {
           mergedArray[i] = array1[i1++];
-          // i1++;
         } else {
           mergedArray[i] = array2[i2++];
-          // i2++;
         }
       } else {
         mergedArray[i] = array2[i2++];
-        // i2++;
       }
     }
     return mergedArray;
