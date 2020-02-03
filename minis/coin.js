@@ -1,4 +1,4 @@
-const coinFlip = function () {
+const coinFlip = () => {
   let _flips = 0;
   let _heads = 0;
   let _tails = 0;
@@ -6,19 +6,19 @@ const coinFlip = function () {
   const _center = 0.5; // 0.0 - <0.5 is heads; 0.50 - <1.0 is tails
 
   return {
-    heads: function () {
+    heads() {
       return _heads;
     },
-    tails: function () {
+    tails() {
       return _tails;
     },
-    flips: function () {
+    flips() {
       return _flips;
     },
-    drift: function () {
+    drift() {
       return _drift;
     },
-    flip: function () {
+    flip() {
       const _toss = Math.random();
 
       let _landedOn;
@@ -35,7 +35,7 @@ const coinFlip = function () {
 
       return _landedOn;
     },
-    test: function (tolerancePercent = 10) {
+    test(tolerancePercent = 10) {
       if (_flips === 0) return ('Coin has never been flipped.')
       const _headsPercentage = Math.round(_heads / _flips * 100);
       const _tailsPercentage = Math.round(_tails / _flips * 100);
@@ -53,7 +53,7 @@ const coinFlip = function () {
 const coin = coinFlip();
 const coin2 = coinFlip();
 
-for (toss of [...Array(10000)]) console.log(
+for (toss of Array(100)) console.log(
   coin.flip(),
   'flip:', coin.flips(),
   'heads:', coin.heads(),

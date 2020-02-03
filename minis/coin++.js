@@ -6,22 +6,22 @@ const coinFlip = function (skew = 0) {
   const _skew = skew;
 
   return {
-    heads: function () {
+    heads() {
       return _heads;
     },
-    tails: function () {
+    tails() {
       return _tails;
     },
-    flips: function () {
+    flips() {
       return _flips;
     },
-    skew: function () {
+    skew() {
       return _skew;
     },
-    drift: function () {
+    drift() {
       return _drift; // Not the Initial-D kind of drift
     },
-    flip: function (normalizeWeight = 0) { // Optional 0..1
+    flip(normalizeWeight = 0) { // Optional 0..1
       const _toss = Math.random();
       const _rampUp = _flips < 10 ? _flips / 10 : 1; // Don't oversteer ;)
       const _compensate = _drift * normalizeWeight * _rampUp;
@@ -40,11 +40,11 @@ const coinFlip = function (skew = 0) {
       _drift = (_heads / _flips) - _center;
       return _landedOn;
     },
-    test: function () {
+    test() {
       let _center = 0.5 + _skew;
       let _not = '';
       if (Math.abs(_center - (_heads / _flips)) > 0.05) _not = 'not ';
-      return `Is ${_not}near center of distribution`;
+      return `is ${_not}near center of distribution`;
     }
 
   }
@@ -52,8 +52,8 @@ const coinFlip = function (skew = 0) {
 
 const coin = coinFlip();
 
-for (toss of [...Array(100)]) console.log(
-  coin.flip(1),
+for (toss of Array(100)) console.log(
+  coin.flip(),
   'flip:', coin.flips(),
   'heads:', coin.heads(),
   'tails:', coin.tails(),
