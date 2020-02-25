@@ -15,8 +15,8 @@ let fizzBuzz = FizzBuzz();
 let fizzBuzz100 = FizzBuzz(100);
 
 console.log('FizzBuzz:');
-Array(15).fill(0).forEach(() => console.log(fizzBuzz()));
+for (i of Array(15)) console.log(fizzBuzz());
 console.log('\nFizzBuzz100:');
-Array(15).fill(0).forEach(() => console.log(fizzBuzz100()));
+for (i of Array(15)) console.log(fizzBuzz100());
 console.log('\nBack to FizzBuzz:');
-Array(15).fill(0).forEach(() => console.log(fizzBuzz()));
+for (i of Array(15)) console.log(fizzBuzz());
