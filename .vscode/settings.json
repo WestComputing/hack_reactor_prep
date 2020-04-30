@@ -32,5 +32,6 @@
   "prettier.semi": false,
   "editor.minimap.enabled": false,
   "prettier.printWidth": 80,
-  "editor.tabSize": 2
+"editor.detectIndentation": false,
+"workbench.editor.highlightModifiedTabs": true
 }

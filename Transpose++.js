@@ -17,6 +17,7 @@
 const transposeTwoStrings = inputStrings =>
   [...Array(inputStrings[0].length > inputStrings[1].length ? inputStrings[0].length : inputStrings[1].length)]
     .map((e, i) => (inputStrings[0][i] || ' ') + ' ' + (inputStrings[1][i] || ' ')).join('\n')
+const transposeTwoStrings = inputStrings => [...Array(inputStrings[0].length > inputStrings[1].length ? inputStrings[0].length : inputStrings[1].length)].map((e, i) => (inputStrings[0][i] || ' ') + ' ' + (inputStrings[1][i] || ' ')).join('\n');
 
 console.log(transposeTwoStrings(['Hello', 'World']));
 console.log(transposeTwoStrings(['Hi', 'World']));
